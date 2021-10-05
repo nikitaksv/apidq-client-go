@@ -3,7 +3,7 @@
 [![Godoc Reference](https://godoc.org/github.com/nikitaksv/apidq-client-go?status.svg)](http://godoc.org/github.com/nikitaksv/apidq-client-go)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/nikitaksv/apidq-client-go)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nikitaksv/apidq-client-go/release)
-[![codecov](https://codecov.io/gh/nikitaksv/apidq-client-go/branch/main/graph/badge.svg?token=efB1Ddi4Ou)](https://codecov.io/gh/nikitaksv/apidq-client-go)
+[![codecov](https://codecov.io/gh/nikitaksv/apidq-client-go/branch/main/graph/badge.svg?token=7InxmTDBcB)](https://codecov.io/gh/nikitaksv/apidq-client-go)
 ![License](https://img.shields.io/github/license/nikitaksv/apidq-client-go)
 
 ---
