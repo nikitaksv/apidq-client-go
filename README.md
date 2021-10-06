@@ -53,8 +53,11 @@ func main() {
 		CountryCode: "RU",
 	})
 	if err != nil {
+		if serviceErr, ok := err.(*apidq.ErrorResponse); ok {
+			fmt.Printf("Code: %d; Message: %s", serviceErr.Code, serviceErr.Message)
+		}
 		panic(err)
-    }
+	}
 
 	fmt.Println(cleanRsp.Address.Address) // -- print: г Москва, пл Спартаковская
 }

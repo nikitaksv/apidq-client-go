@@ -11,6 +11,8 @@ import (
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 const (
@@ -180,10 +182,13 @@ func (c *Client) do(_ context.Context, req *http.Request, v interface{}) (rsp *h
 		if rsp.StatusCode != 200 {
 			errRsp := &ErrorResponse{}
 			decErr := json.Unmarshal(body, errRsp)
-			if decErr == nil {
+			if decErr == nil && errRsp.Code != 0 && errRsp.Message != "" {
 				return nil, errRsp
 			}
-			return nil, decErr
+			if decErr == nil {
+				decErr = errors.New("invalid ErrorResponse struct")
+			}
+			return nil, errors.WithMessage(decErr, string(body))
 		}
 
 		decErr := json.Unmarshal(body, v)
@@ -191,7 +196,7 @@ func (c *Client) do(_ context.Context, req *http.Request, v interface{}) (rsp *h
 			return rsp, nil
 		}
 
-		return nil, decErr
+		return nil, errors.WithMessage(decErr, string(body))
 	}
 
 	return rsp, nil
