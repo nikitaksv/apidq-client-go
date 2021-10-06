@@ -55,7 +55,7 @@ func TestClientHost(t *testing.T) {
 	if err == nil {
 		t.Fatal(errors.New("need network error"))
 	}
-	if !strings.Contains(err.Error(), "dial tcp: lookup no-connect-url.local: no such host") {
+	if !strings.Contains(err.Error(), "dial tcp: lookup no-connect-url.local") {
 		t.Fatal(err.Error())
 	}
 }
