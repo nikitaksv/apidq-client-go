@@ -2,26 +2,32 @@ package address
 
 const (
 	// QltUniqUnique Uniq/Уникален: предлагается 1 эталонный адрес
-	QltUniqUnique QltUniq = iota
+	QltUniqUnique QltUniq = 0
 	// QltUniqDoubtful Doubtful/Сомнителен: предлагается несколько эталонных адресов близких по написанию (возможен выбор)
 	QltUniqDoubtful
 	// QltUniqNotUniq Not unique/Неуникален: есть несколько эталонных записей, в равной степени соответствующих исходному адресу
 	QltUniqNotUniq
+)
 
+const (
 	// QltActualityActual Actual/Найдено по актуальной записи: название и административное подчинение, указанные в разбираемом адресе, соответствуют эталонному
 	QltActualityActual QltActuality = iota
 	// QltActualityRename Rename/Переименование: устаревшее название одного из адресных элементов, указанных в разбираемом адресе
 	QltActualityRename
 	// QltActualityReassignment Reassignment/Переподчинение: административное подчинение, указанное в разбираемом адресе, устарело
 	QltActualityReassignment
+)
 
+const (
 	// QltUndefNo No/Нет
 	QltUndefNo QltUndef = iota
 	// QltUndefInsignificant Insignificant/Малозначимый: информация, не влияющая на результаты распознавания при ручной проверке
 	QltUndefInsignificant
 	// QltUndefSignificant Significant/Значимый: информация, которая при ручной проверке может повлиять на результат сравнения разбираемого адреса с эталоном
 	QltUndefSignificant
+)
 
+const (
 	// QltLvlRegion To the region(state)/До региона
 	QltLvlRegion QltLvl = iota + 1
 	// QltLvlDistrict To the district/До района
@@ -38,16 +44,26 @@ const (
 	QltLvlStreet
 	// QltLvlHouse To the house/До дома
 	QltLvlHouse
+)
 
+const (
 	// QltHouseNotFound Not found variants/Не найдено вариантов
-	QltHouseNotFound QltHouse = 0
+	QltHouseNotFound QltHouse = iota
+	_
+	_
 	// QltHouseExact Exact match of the house by reference/Точное определение дома по эталону
-	QltHouseExact QltHouse = 3
+	QltHouseExact
 	// QltHousePartial Partial house match by reference/Частичное определение дома по эталону
-	QltHousePartial QltHouse = 4
+	QltHousePartial
+	_
+	_
+	_
+	_
 	// QltHouseNonHouse The parsed address is missing a house number/В разбираемом адресе отсутствует номер дома
-	QltHouseNonHouse QltHouse = 9
+	QltHouseNonHouse
+)
 
+const (
 	// QltGeoRegion To the region(state)/До региона
 	QltGeoRegion QltGeo = iota + 1
 	// QltGeoDistrict To the district/До района
